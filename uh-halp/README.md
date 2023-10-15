@@ -1,5 +1,7 @@
 # uh halp
 
+[![asciicast](https://asciinema.org/a/ASSdgBXQxXTh24rZRSn7t8JUB.svg)](https://asciinema.org/a/ASSdgBXQxXTh24rZRSn7t8JUB)
+
 Install:
 
 ```bash
