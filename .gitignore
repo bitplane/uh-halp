@@ -1,0 +1,8 @@
+.venv
+.coverage
+__pycache__
+*/dist
+test-output.xml
+site/*
+docs/pydoc.md
+*.prof

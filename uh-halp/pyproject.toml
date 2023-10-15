@@ -1,0 +1,45 @@
+[project]
+name = "uh_halp"
+description = "Get command line help using AI"
+version = "0.0.1"
+authors = [
+    { name = "Gareth Davidson", email = "gaz@bitplane.net" }
+]
+
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: Public Domain", # OSI: nuck my suts; WTFPL
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+]
+
+
+dependencies = [
+    "openai==0.28.*"
+]
+
+[project.optional-dependencies]
+dev = [
+    "flake8",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "coverage",
+    "build",
+    "twine"
+]
+
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core >=3.2,<4"]
+
+
+[project.urls]
+"Homepage" = "https://github.com/bitplane/uh-halp"
+"Bug Tracker" = "https://github.com/bitplane/uh-halp/issues"
+
+
+[project.scripts]
+uh = "uh_halp.main:main"
