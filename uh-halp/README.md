@@ -37,8 +37,8 @@ ssh -D 8080 username@192.168.0.1
 $ uh check if the internet is up
 ping -c 3 google.com
 
-$ uh make beeping noises forever
-while true; do echo -e "\a"; done
+$ uh make an annoying beeping noise at random intervals forever in the background
+while true; do echo -e "\a"; sleep $((RANDOM % 10)); done &
 ```
 
 ## Notes
