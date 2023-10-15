@@ -49,5 +49,18 @@ $ uh fork bomb this shell # don't run this!
 OpenAI are bawbags. Expect crying if you ask it to do anything naughty or
 swear at it.
 
-Lacks testing, works_on_my_machine.jpg. Should work in Windows as the shell
-and OS details get passed to the system prompt. But it might not!
+It's using the cheapest model and will get things wrong, so y'know, look
+before you paste.
+
+Lacks testing, `works_on_my_machine.jpg`. Should also work in Windows as the
+shell and OS details get passed to the system prompt. But it might not!
+
+## Disclaimer
+
+If it blows your machine up it's your own fault. Don't run code produced by
+a language model without reading it, their breadth of knowledge is matched
+only by their depth of stupidity.
+
+## License
+
+WTFPL with one additional clause: don't blame me!
