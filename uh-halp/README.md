@@ -6,6 +6,14 @@ Install:
 pip install uh-halp
 ```
 
+Configure:
+
+```bash
+$ uh where am i?
+Need an OpenAI key, it'll be saved to ~/.uh-key: <paste here>
+pwd
+```
+
 Usage:
 
 ```bash
@@ -30,11 +38,14 @@ ping -c 3 google.com
 $ uh make beeping noises forever
 while true; do echo -e "\a"; done
 
-$ uh fork bomb this terminal
+$ uh fork bomb this shell # don't run this!
 :(){ :|:& };:
 ```
 
-## Restrictions
+## Notes
 
 OpenAI are bawbags. Expect crying if you ask it to do anything naughty or
 swear at it.
+
+Lacks testing, works_on_my_machine.jpg. Should work in Windows as the shell
+and OS details get passed to the system prompt. But it might not!
