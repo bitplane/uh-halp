@@ -39,9 +39,6 @@ ping -c 3 google.com
 
 $ uh make beeping noises forever
 while true; do echo -e "\a"; done
-
-$ uh fork bomb this shell # don't run this!
-:(){ :|:& };:
 ```
 
 ## Notes
