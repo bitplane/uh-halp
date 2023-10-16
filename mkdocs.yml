@@ -19,3 +19,4 @@ markdown_extensions:
 
 nav:
  - 'README.md'
+ - 'pydoc.md'

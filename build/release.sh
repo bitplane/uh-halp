@@ -17,4 +17,4 @@ if [ -z "$PYPI_TOKEN" ]; then
   exit 1
 fi
 
-python3 -m twine upload arranges/dist/* --user=__token__ --password="$PYPI_TOKEN"
+python3 -m twine upload uh-halp/dist/* --user=__token__ --password="$PYPI_TOKEN"

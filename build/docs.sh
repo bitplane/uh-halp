@@ -4,7 +4,7 @@ source .venv/bin/activate
 
 set -e
 
-pushd arranges/src
+pushd uh-halp/src
 pydoc-markdown -p uh_halp > ../../docs/pydoc.md
 popd
 

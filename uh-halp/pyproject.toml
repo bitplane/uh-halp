@@ -7,7 +7,7 @@ authors = [
 ]
 
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: Public Domain", # OSI: nuck my suts; WTFPL
@@ -28,7 +28,10 @@ dev = [
     "pytest-cov",
     "coverage",
     "build",
-    "twine"
+    "twine",
+    "mkdocs",
+    "mkdocs-material",
+    "pydoc-markdown"
 ]
 
 [build-system]
