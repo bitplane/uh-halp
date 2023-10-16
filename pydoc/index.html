@@ -218,11 +218,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../uh-halp/README.md" class="md-nav__link">
+      <a href="/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    /
   </span>
   
 
@@ -302,12 +302,72 @@
 <h1 id="uh_halp__main__">uh_halp.__main__</h1>
 <p><a id="uh_halp.main"></a></p>
 <h1 id="uh_halpmain">uh_halp.main</h1>
+<p><a id="uh_halp.main.main"></a></p>
+<h4 id="main">main</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">main</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Entrypoint for the CLI.</p>
 <p><a id="uh_halp.os"></a></p>
 <h1 id="uh_halpos">uh_halp.os</h1>
+<p><a id="uh_halp.os.get_os"></a></p>
+<h4 id="get_os">get_os</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">get_os</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Returns a string describing the OS.</p>
+<p><a id="uh_halp.os.get_shell"></a></p>
+<h4 id="get_shell">get_shell</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">get_shell</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Returns the user's shell executable name.</p>
+<p><a id="uh_halp.os.info"></a></p>
+<h4 id="info">info</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">info</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Returns the OS info string that's used as the system message.</p>
+<p><a id="uh_halp.os.get_sys_msg"></a></p>
+<h4 id="get_sys_msg">get_sys_msg</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">get_sys_msg</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Returns the system message sent to the LLM, asking it nicely to return a program.</p>
 <p><a id="uh_halp.query"></a></p>
 <h1 id="uh_halpquery">uh_halp.query</h1>
-<p><a id="uh_halp.key"></a></p>
-<h1 id="uh_halpkey">uh_halp.key</h1>
+<p><a id="uh_halp.query.from_args"></a></p>
+<h4 id="from_args">from_args</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">from_args</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</span></code></pre></div>
+<p>Gets the query from command line args</p>
+<p><a id="uh_halp.query.call_api"></a></p>
+<h4 id="call_api">call_api</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span> <span class="nf">call_api</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Calls the OpenAI API with the query from the command line.</p>
+<p><a id="uh_halp.query.clean"></a></p>
+<h4 id="clean">clean</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Cleans the response from the API, because we can't trust it to play nicely.</p>
+<p><a id="uh_halp.query.query"></a></p>
+<h4 id="query">query</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">query</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Queries the OpenAI API and returns the result</p>
+<p><a id="uh_halp.config"></a></p>
+<h1 id="uh_halpconfig">uh_halp.config</h1>
+<p><a id="uh_halp.config.save_key"></a></p>
+<h4 id="save_key">save_key</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span> <span class="nf">save_key</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key_file</span><span class="o">=</span><span class="n">KEY_FILE</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Save the OpenAI key to disk</p>
+<p><a id="uh_halp.config.load_key"></a></p>
+<h4 id="load_key">load_key</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span> <span class="nf">load_key</span><span class="p">(</span><span class="n">key_file</span><span class="o">=</span><span class="n">KEY_FILE</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Load the OpenAI key from disk</p>
+<p><a id="uh_halp.config.get_key"></a></p>
+<h4 id="get_key">get_key</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span> <span class="nf">get_key</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Loads the OpenAI key from ~/.uh-key, or prompts for it and saves it there.</p>
 
 
 
