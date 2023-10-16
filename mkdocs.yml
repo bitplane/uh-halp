@@ -1,4 +1,4 @@
-site_name: uh halp?
+site_name: uh
 repo_url: https://github.com/bitplane/uh-halp/
 theme:
   name: material
@@ -18,5 +18,5 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
- - 'README.md'
- - 'pydoc.md'
+  - 'halp': index.html
+  - 'doctsrings': pydoc.md'
