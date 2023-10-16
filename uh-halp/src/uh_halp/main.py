@@ -2,6 +2,9 @@ from .query import query
 
 
 def main():
+    """
+    Entrypoint for the CLI.
+    """
     print(query())
 
 

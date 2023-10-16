@@ -5,7 +5,10 @@ import subprocess
 SYS_MSG = """Input is from the command line. Answer the question with a one-line script or list of paths, not natural language. Assume pwd by default. Output is to console, no formatting."""
 
 
-def get_os_info():
+def get_os():
+    """
+    Returns a string describing the OS.
+    """
     system = platform.system()
     if system == "Linux":
         try:
@@ -22,11 +25,25 @@ def get_os_info():
     return "unknown"
 
 
+def get_shell():
+    """
+    Returns the user's shell executable name.
+    """
+    shell_cmd = os.environ.get("SHELL", os.environ.get("ComSpec", "unknown"))
+    return os.path.basename(shell_cmd)
+
+
 def info():
-    shell = os.environ.get("SHELL", os.environ.get("ComSpec", "unknown"))
-    os_info = get_os_info()
-    return f"The user is using {os.path.basename(shell)} on {os_info}"
+    """
+    Returns the OS info string that's used as the system message.
+    """
+    shell = get_shell()
+    os_info = get_os()
+    return f"The user is using {shell} on {os_info}"
 
 
 def get_sys_msg():
+    """
+    Returns the system message sent to the LLM, asking it nicely to return a program.
+    """
     return SYS_MSG + " " + info()
