@@ -11,9 +11,9 @@ pip install uh-halp
 Configure:
 
 ```bash
-$ uh where am i?
-Need an OpenAI key, it'll be saved to ~/.uh-key: <paste here>
-pwd
+$ uh halp?
+>>> Need an OpenAI key, it'll be saved to ~/.uh-key: <paste here>
+Sure, what do you need help with?
 ```
 
 Usage:
@@ -37,17 +37,20 @@ ssh -D 8080 username@192.168.0.1
 $ uh check if the internet is up
 ping -c 3 google.com
 
-$ uh make an annoying beeping noise at random intervals forever in the background
+$ uh make annoying beeping noises randomly in the background forever
 while true; do echo -e "\a"; sleep $((RANDOM % 10)); done &
 ```
 
 ## Notes
 
-OpenAI are bawbags. Expect crying if you ask it to do anything naughty or
-swear at it.
+Models of alignment other than Lawful Neutral are planned in future, but
+currently uses OpenAI's GPT. So official policy is to cry if you ask it to do
+anything bad, ask it to swear, or are otherwise naughty.
 
 It's using the cheapest model and will get things wrong, so y'know, look
-before you paste.
+before you paste. There's also no protection against doing things like
+`$(uh how do I break this computer?)` at the moment. So please don't just
+execute its output!
 
 Lacks testing, `works_on_my_machine.jpg`. Should also work in Windows as the
 shell and OS details get passed to the system prompt. But it might not!
