@@ -321,9 +321,9 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>uh-halp
 </span></code></pre></div>
 <p>Configure:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>uh<span class="w"> </span>where<span class="w"> </span>am<span class="w"> </span>i?
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Need<span class="w"> </span>an<span class="w"> </span>OpenAI<span class="w"> </span>key,<span class="w"> </span>it<span class="err">&#39;</span>ll<span class="w"> </span>be<span class="w"> </span>saved<span class="w"> </span>to<span class="w"> </span>~/.uh-key:<span class="w"> </span>&lt;paste<span class="w"> </span>here&gt;
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">pwd</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>uh<span class="w"> </span>halp?
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&gt;&gt;&gt;<span class="w"> </span>Need<span class="w"> </span>an<span class="w"> </span>OpenAI<span class="w"> </span>key,<span class="w"> </span>it<span class="err">&#39;</span>ll<span class="w"> </span>be<span class="w"> </span>saved<span class="w"> </span>to<span class="w"> </span>~/.uh-key:<span class="w"> </span>&lt;paste<span class="w"> </span>here&gt;
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Sure,<span class="w"> </span>what<span class="w"> </span><span class="k">do</span><span class="w"> </span>you<span class="w"> </span>need<span class="w"> </span><span class="nb">help</span><span class="w"> </span>with?
 </span></code></pre></div>
 <p>Usage:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>uh<span class="w"> </span>check<span class="w"> </span>my<span class="w"> </span>syslog
@@ -344,14 +344,17 @@
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>$<span class="w"> </span>uh<span class="w"> </span>check<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>internet<span class="w"> </span>is<span class="w"> </span>up
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>google.com
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>$<span class="w"> </span>uh<span class="w"> </span>make<span class="w"> </span>an<span class="w"> </span>annoying<span class="w"> </span>beeping<span class="w"> </span>noise<span class="w"> </span>at<span class="w"> </span>random<span class="w"> </span>intervals<span class="w"> </span>forever<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>background
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>$<span class="w"> </span>uh<span class="w"> </span>make<span class="w"> </span>annoying<span class="w"> </span>beeping<span class="w"> </span>noises<span class="w"> </span>randomly<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>background<span class="w"> </span>forever
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\a&quot;</span><span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="k">$((</span><span class="nv">RANDOM</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">10</span><span class="k">))</span><span class="p">;</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="p">&amp;</span>
 </span></code></pre></div>
 <h2 id="notes">Notes</h2>
-<p>OpenAI are bawbags. Expect crying if you ask it to do anything naughty or
-swear at it.</p>
+<p>Models of alignment other than Lawful Neutral are planned in future, but
+currently uses OpenAI's GPT. So official policy is to cry if you ask it to do
+anything bad, ask it to swear, or are otherwise naughty.</p>
 <p>It's using the cheapest model and will get things wrong, so y'know, look
-before you paste.</p>
+before you paste. There's also no protection against doing things like
+<code>$(uh how do I break this computer?)</code> at the moment. So please don't just
+execute its output!</p>
 <p>Lacks testing, <code>works_on_my_machine.jpg</code>. Should also work in Windows as the
 shell and OS details get passed to the system prompt. But it might not!</p>
 <h2 id="disclaimer">Disclaimer</h2>
