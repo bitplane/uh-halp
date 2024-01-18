@@ -20,3 +20,7 @@ def test_clean_query_newline_before():
     expected = "rm -rf --no-preserve-root /"
 
     assert clean(query) == expected
+
+
+def test_empty_response():
+    assert clean("") == "uh, dunno. sorry :("

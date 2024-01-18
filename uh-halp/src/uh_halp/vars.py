@@ -39,6 +39,7 @@ def get_shell():
     Returns the user's shell executable name.
     """
     shell_cmd = os.environ.get("SHELL", os.environ.get("ComSpec", "unknown"))
+    shell_cmd = shell_cmd.replace("\\", "/")
     return os.path.basename(shell_cmd)
 
 
