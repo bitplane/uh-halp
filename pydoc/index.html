@@ -313,57 +313,71 @@
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">get_shell</span><span class="p">()</span>
 </span></code></pre></div>
 <p>Returns the user's shell executable name.</p>
+<p><a id="uh_halp.vars.apply_vars"></a></p>
+<h4 id="apply_vars">apply_vars</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">apply_vars</span><span class="p">(</span><span class="nb">vars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">template</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Replaces strings in a json-style object tree. Use {var}</p>
 <p><a id="uh_halp.vars.get_vars"></a></p>
 <h4 id="get_vars">get_vars</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">get_vars</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">get_vars</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
 </span></code></pre></div>
-<p>Returns keys that can be used in the prompt template</p>
+<p>Gets variables that can be replaced with templates.
+To use one, reference it like {var} in any string field.</p>
+<p>Current keys are:</p>
+<ul>
+<li>shell: The user's shell executable name.</li>
+<li>os: A string describing the OS and its version.</li>
+<li>query: The query string.</li>
+<li>pwd: The current working directory.</li>
+<li>key: the secret key for the service (blank here, requested interactively if needed)</li>
+</ul>
 <p><a id="uh_halp.config"></a></p>
 <h1 id="uh_halpconfig">uh_halp.config</h1>
 <p><a id="uh_halp.config.reset_config"></a></p>
 <h4 id="reset_config">reset_config</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">reset_config</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">CONFIG_FILE</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">reset_config</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">CONFIG_FILE</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Resets the config file to the template</p>
 <p><a id="uh_halp.config.save_config"></a></p>
 <h4 id="save_config">save_config</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">CONFIG_FILE</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">CONFIG_FILE</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Saves the config file</p>
 <p><a id="uh_halp.config.get_config"></a></p>
 <h4 id="get_config">get_config</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">CONFIG_FILE</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">CONFIG_FILE</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Reads the config file, creating it from template if it doesn't exist</p>
 <p><a id="uh_halp.keys"></a></p>
 <h1 id="uh_halpkeys">uh_halp.keys</h1>
 <p><a id="uh_halp.keys.save_key"></a></p>
 <h4 id="save_key">save_key</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span> <span class="nf">save_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">KEY_FILE</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">save_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">KEY_FILE</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Save the service's key to disk</p>
 <p><a id="uh_halp.keys.load_key"></a></p>
 <h4 id="load_key">load_key</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">load_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">KEY_FILE</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">load_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">KEY_FILE</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Load the key from disk</p>
 <p><a id="uh_halp.keys.get_key"></a></p>
 <h4 id="get_key">get_key</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">get_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span> <span class="nf">get_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </span></code></pre></div>
 <p>Loads the service's key from ~/.uh-keys, or prompts for it and saves it there.</p>
 <p><a id="uh_halp.backend.web_api"></a></p>
 <h1 id="uh_halpbackendweb_api">uh_halp.backend.web_api</h1>
 <p><a id="uh_halp.backend.web_api.query"></a></p>
 <h4 id="query">query</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Standard web API request</p>
 <p><a id="uh_halp.backend.util"></a></p>
 <h1 id="uh_halpbackendutil">uh_halp.backend.util</h1>
 <p><a id="uh_halp.backend.util.clean"></a></p>
 <h4 id="clean">clean</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Cleans the response from the API, because we can't trust it to play nicely.</p>
 <p><a id="uh_halp.backend"></a></p>
@@ -372,7 +386,7 @@
 <h1 id="uh_halpbackendopenai">uh_halp.backend.openai</h1>
 <p><a id="uh_halp.backend.openai.query"></a></p>
 <h4 id="query_1">query</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">system_prompt</span><span class="p">,</span> <span class="n">user_prompt</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">system_prompt</span><span class="p">,</span> <span class="n">user_prompt</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Calls the OpenAI API with the query from the command line.</p>
 <p><a id="uh_halp.main"></a></p>
@@ -380,7 +394,7 @@
 <p>Contains main entrypoint</p>
 <p><a id="uh_halp.main.show_help"></a></p>
 <h4 id="show_help">show_help</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span> <span class="nf">show_help</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span> <span class="nf">show_help</span><span class="p">()</span>
 </span></code></pre></div>
 <p>uh
 command line help on the command line</p>
@@ -390,9 +404,14 @@ command line help on the command line</p>
   date +%H:%M:%S</p>
 <p>config is in ~/.uh_config. Each field is parsed with mustache.
   Access tokens go in ~/.uh-keys</p>
+<p><a id="uh_halp.main.get_query_func"></a></p>
+<h4 id="get_query_func">get_query_func</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span> <span class="nf">get_query_func</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Returns the query function for the given module name.</p>
 <p><a id="uh_halp.main.main"></a></p>
 <h4 id="main">main</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </span></code></pre></div>
 <p>Entrypoint for the CLI.</p>
 <p><a id="uh_halp.__main__"></a></p>
