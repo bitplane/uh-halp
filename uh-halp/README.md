@@ -45,8 +45,8 @@ It currently defaults to OpenAI. If you want to use something else, open
 `~/.uh-config.json` and change `current` and edit the config. If you want
 to add your own custom back-end, give the name of a module that has a
 `query` function in it, then fill in the parameters with templates vars
-in the example format. Pass `{config_name}` as a parameter and use
-`uh_halp.keys.get_key` to prompt for a key for that service.
+in the example format. Use `{key}` as one of the params to send the key
+wherever you like (postdata, query param, cookie or other header).
 
 Look before you paste. There's no protection against doing things like
 `$(uh how do I break this computer?)`. So please don't just execute its
