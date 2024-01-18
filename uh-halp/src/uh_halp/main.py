@@ -58,6 +58,9 @@ def main() -> int:
     """
     Entrypoint for the CLI.
     """
+    config = get_config()
+    current = config.get("current", None)
+
     needs_help = len(sys.argv) == 1 or (
         len(sys.argv) == 2 and any(halp in sys.argv[1] for halp in ("halp", "help"))
     )
@@ -65,9 +68,6 @@ def main() -> int:
     if needs_help:
         show_help()
         return 0
-
-    config = get_config()
-    current = config.get("current", None)
 
     if current not in config["services"]:
         choices = ", ".join(config["services"].keys())
