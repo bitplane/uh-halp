@@ -55,12 +55,15 @@ def main() -> int:
     current_config = config["services"][current]
     vars = get_vars()
 
+    key = None
+
     if current_config.get("use_key", False):
         key = get_key(current)
         if not key:
             print(f"{current} needs an access key.")
             return 1
-        vars["key"] = key
+
+    vars["key"] = key
 
     params = apply_vars(vars, current_config["params"])
 
