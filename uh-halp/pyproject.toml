@@ -1,7 +1,7 @@
 [project]
 name = "uh_halp"
 description = "Get command line help using AI"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
     { name = "Gareth Davidson", email = "gaz@bitplane.net" }
 ]
