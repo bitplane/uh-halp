@@ -3,6 +3,7 @@
 		"ms-python.python",
 		"davidanson.vscode-markdownlint",
 		"ms-vscode.makefile-tools",
-		"ms-python.flake8"
+		"ms-python.flake8",
+		"ms-python.black-formatter"
 	]
 }
