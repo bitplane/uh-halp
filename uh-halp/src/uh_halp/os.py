@@ -19,10 +19,16 @@ def get_os():
                     if line.startswith("PRETTY_NAME="):
                         return line.strip().split("=")[1].strip('"')
     elif system == "Darwin":
-        return subprocess.check_output(["sw_vers", "-productVersion"]).decode().strip()
+        lines = subprocess.check_output(["sw_vers"]).decode().split("\n")
+        words = [word.split(":", maxsplit=1)[-1].strip() for word in lines if word]
+        return " ".join(words)
     elif system == "Windows":
         return f"Windows {platform.release()}"
-    return "unknown"
+    elif "BSD" in system:
+        release = subprocess.check_output(["uname", "-r"]).decode().strip()
+        return f"{system} {release}"
+
+    return system
 
 
 def get_shell():
