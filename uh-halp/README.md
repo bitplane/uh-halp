@@ -10,8 +10,9 @@ Configure:
 
 ```bash
 $ uh reverse file.txt
->>> Need an OpenAI key, it'll be saved to ~/.uh-key: <paste here>
-Sure, what do you need help with?
+>>> Need an openai key, it'll be saved to ~/.uh-key: <paste here>
+>> Saving openai key to ~/.uh-keys
+tac file.txt
 ```
 
 Usage:
