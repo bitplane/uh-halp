@@ -59,6 +59,8 @@ def main() -> int:
         key = get_key(current)
         if not key:
             print(f"{current} needs an access key.")
+            return 1
+        vars["key"] = key
 
     params = apply_vars(vars, current_config["params"])
 
