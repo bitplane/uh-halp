@@ -13,17 +13,19 @@
     "custom": {
       "module": "uh_halp.backend.web_api",
       "params": {
-        "endpoint": "https://localhost:5001/api_endpoint",
+        "endpoint": "http://localhost:5001/api/chat",
         "method": "POST",
-        "query_data": "",
-        "post_data": "{query}",
+        "query": {},
+        "post_data": {
+        },
         "headers": {
           "User-Agent": "uh-halp",
-          "X-Jwt-Key": "{key}"
+          "Content-Type": "application/json",
+          "Cookie": "whatever={key}"
         }
       },
-      "use_key": false
+      "use_key": true
     }
   },
-  "current": "openai"
+  "current": "custom"
 }
