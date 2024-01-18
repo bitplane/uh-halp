@@ -3,6 +3,7 @@ Contains main entrypoint
 """
 
 import importlib
+import os
 import sys
 
 from .config import CONFIG_FILE, get_config
@@ -29,6 +30,28 @@ def show_help():
 
     print(halp)
     return 0
+
+
+def debug_print_query(**kwargs):
+    return "failed query attempt: " + str(kwargs)
+
+
+def get_query_func(module_name):
+    """
+    Returns the query function for the given module name.
+    """
+    old_path = sys.path.copy()
+    pwd = os.getcwd()
+    sys.path = [p for p in sys.path if p not in ("", ".", pwd)]
+
+    try:
+        module = importlib.import_module(module_name)
+        sys.path = old_path
+    except ModuleNotFoundError:
+        print(f"Module {module_name} not found. Using debug printer instead.")
+        return debug_print_query
+
+    return module.query
 
 
 def main() -> int:
@@ -67,8 +90,9 @@ def main() -> int:
 
     params = apply_vars(vars, current_config["params"])
 
-    module = importlib.import_module(f"{current_config['module']}")
-    response = module.query(**params)
+    query = get_query_func(current_config["module"])
+
+    response = query(**params)
     print(response)
 
 

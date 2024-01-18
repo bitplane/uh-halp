@@ -44,10 +44,16 @@ def get_shell():
 
 
 def apply_vars(vars: dict, template: dict):
+    """
+    Replaces strings in a json-style object tree. Use {var}
+    """
     if isinstance(template, str):
         return template.format(**vars)
     elif isinstance(template, dict):
-        return {key: apply_vars(vars, value) for key, value in template.items()}
+        return {
+            apply_vars(vars, key): apply_vars(vars, value)
+            for key, value in template.items()
+        }
     elif isinstance(template, list):
         return [apply_vars(vars, item) for item in template]
     else:
@@ -56,12 +62,22 @@ def apply_vars(vars: dict, template: dict):
 
 def get_vars() -> dict:
     """
-    Returns keys that can be used in the prompt template
+    Gets variables that can be replaced with templates.
+    To use one, reference it like {var} in any string field.
+
+    Current keys are:
+
+    - shell: The user's shell executable name.
+    - os: A string describing the OS and its version.
+    - query: The query string.
+    - pwd: The current working directory.
+    - key: the secret key for the service (blank here, requested interactively if needed)
     """
     return {
         "shell": get_shell(),
         "os": get_os(),
         "query": " ".join(sys.argv[1:]),
+        "key": None,  # updated later if required
         # I'm not sending this one, you can if you want.
         "pwd": os.getcwd(),
     }
