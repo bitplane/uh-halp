@@ -7,7 +7,7 @@ def test_get_shell(monkeypatch):
 
 
 def test_get_shell_fallback(monkeypatch):
-    monkeypatch.delenv("SHELL")
+    monkeypatch.delenv("SHELL", raising=False)
     monkeypatch.setenv("ComSpec", "csh")
     assert get_shell() == "csh"
 
