@@ -9,7 +9,7 @@ pip install uh-halp
 Configure:
 
 ```bash
-$ uh halp?
+$ uh reverse file.txt
 >>> Need an OpenAI key, it'll be saved to ~/.uh-key: <paste here>
 Sure, what do you need help with?
 ```
@@ -41,23 +41,24 @@ while true; do echo -e "\a"; sleep $((RANDOM % 10)); done &
 
 ## Notes
 
-Models of alignment other than Lawful Neutral are planned in future, but
-currently uses OpenAI's GPT. So official policy is to cry if you ask it to do
-anything bad, ask it to swear, or are otherwise naughty.
+It currently defaults to OpenAI. If you want to use something else, open
+`~/.uh-config.json` and change `current` and edit the config. If you want
+to add your own custom back-end, give the name of a module that has a
+`query` function in it, then fill in the parameters with templates vars
+in the example format. Pass `{config_name}` as a parameter and use
+`uh_halp.keys.get_key` to prompt for a key for that service.
 
-It's using the cheapest model and will get things wrong, so y'know, look
-before you paste. There's also no protection against doing things like
-`$(uh how do I break this computer?)` at the moment. So please don't just
-execute its output!
+Look before you paste. There's no protection against doing things like
+`$(uh how do I break this computer?)`. So please don't just execute its
+output!
 
-Lacks testing, `works_on_my_machine.jpg`. Should also work in Windows as the
-shell and OS details get passed to the system prompt. But it might not!
+Seems to work well in bash and zsh on Linux and macOS. It's not had much
+testing elsewhere else. Windows, BSD, Solaris, zOS etc should also work.
 
 ## Disclaimer
 
 If it blows your machine up it's your own fault. Don't run code produced by
-a language model without reading it, their breadth of knowledge is matched
-only by their depth of stupidity.
+a language model without reading it.
 
 ## License
 

@@ -1,4 +1,4 @@
-from uh_halp.query import clean
+from uh_halp.backend.util import clean
 
 
 def test_clean_query_markdown():

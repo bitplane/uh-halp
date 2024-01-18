@@ -1,8 +1,11 @@
+"""
+Gets template variables that can be inserted into the context.
+"""
+
 import os
 import platform
 import subprocess
-
-SYS_MSG = """Input is from the command line. Answer the question with a one-line script or list of paths, not natural language. Assume pwd by default. Output is to console, no formatting."""
+import sys
 
 
 def get_os():
@@ -39,17 +42,25 @@ def get_shell():
     return os.path.basename(shell_cmd)
 
 
-def info():
-    """
-    Returns the OS info string that's used as the system message.
-    """
-    shell = get_shell()
-    os_info = get_os()
-    return f"The user is using {shell} on {os_info}"
+def apply_vars(vars: dict, template: dict):
+    if isinstance(template, str):
+        return template.format(**vars)
+    elif isinstance(template, dict):
+        return {key: apply_vars(vars, value) for key, value in template.items()}
+    elif isinstance(template, list):
+        return [apply_vars(vars, item) for item in template]
+    else:
+        return template
 
 
-def get_sys_msg():
+def get_vars() -> dict:
     """
-    Returns the system message sent to the LLM, asking it nicely to return a program.
+    Returns keys that can be used in the prompt template
     """
-    return SYS_MSG + " " + info()
+    return {
+        "shell": get_shell(),
+        "os": get_os(),
+        "query": " ".join(sys.argv[1:]),
+        # I'm not sending this one, you can if you want.
+        "pwd": os.getcwd(),
+    }

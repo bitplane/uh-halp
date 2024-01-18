@@ -1,0 +1,29 @@
+{
+  "services": {
+    "openai": {
+      "module": "uh_halp.backend.openai",
+      "params": {
+        "model": "gpt-3.5-turbo",
+        "system_prompt": "Input is from the command line. Answer the question with a one-line script or list of paths, not natural language. Assume pwd by default. Output is to console, no formatting.",
+        "user_prompt": "{query}",
+        "key": "{key}"
+      },
+      "use_key": true
+    },
+    "custom": {
+      "module": "uh_halp.backend.web_api",
+      "params": {
+        "endpoint": "https://localhost:5001/api_endpoint",
+        "method": "POST",
+        "query_data": "",
+        "post_data": "{query}",
+        "headers": {
+          "User-Agent": "uh-halp",
+          "X-Jwt-Key": "{key}"
+        }
+      },
+      "use_key": false
+    }
+  },
+  "current": "openai"
+}

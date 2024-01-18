@@ -1,46 +1,44 @@
+import json
 import os
+import shutil
 
 CONFIG_FILE = "~/.uh-config"
-KEY_FILE = "~/.uh-key"
 
 
-def prompt_key():
-    key = input(">>> Need an OpenAI key, paste it here: ").strip()
-    return key
-
-
-def save_key(key: str, key_file=KEY_FILE):
+def reset_config(path: str = CONFIG_FILE):
     """
-    Save the OpenAI key to disk
+    Resets the config file to the template
     """
-    key_path = os.path.expanduser(key_file)
-    print(f">>> Saving key to {key_file}")
+    dest = os.path.expanduser(path)
 
-    with open(key_path, "w") as f:
-        f.write(key)
+    if os.path.exists(dest):
+        os.remove(dest)
 
-    os.chmod(key_path, 0o600)
+    this_file = os.path.realpath(__file__)
+    this_dir = os.path.dirname(this_file)
+    source = f"{this_dir}/default_config.json"
+
+    shutil.copyfile(source, dest)
 
 
-def load_key(key_file=KEY_FILE):
+def save_config(config, path: str = CONFIG_FILE):
     """
-    Load the OpenAI key from disk
+    Saves the config file
     """
-    key_path = os.path.expanduser(key_file)
-
-    try:
-        with open(key_path, "r") as f:
-            return f.read().strip()
-    except FileNotFoundError:
-        return None
+    config_file = os.path.expanduser(path)
+    with open(config_file, "wt") as f:
+        json.dump(config, f, indent=4)
 
 
-def get_key():
+def get_config(path: str = CONFIG_FILE):
     """
-    Loads the OpenAI key from ~/.uh-key, or prompts for it and saves it there.
+    Reads the config file, creating it from template if it doesn't exist
     """
-    key = load_key()
-    if not key:
-        key = prompt_key()
-        save_key(key)
-    return key
+    config_file = os.path.expanduser(path)
+    if not os.path.exists(config_file):
+        reset_config(path)
+
+    with open(config_file) as f:
+        config = json.load(f)
+
+    return config

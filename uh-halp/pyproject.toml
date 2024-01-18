@@ -17,7 +17,8 @@ classifiers = [
 
 
 dependencies = [
-    "openai==0.28.*"
+    "openai==0.28.*",
+    "requests>=2.31"
 ]
 
 [project.optional-dependencies]
