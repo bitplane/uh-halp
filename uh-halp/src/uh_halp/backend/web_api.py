@@ -3,7 +3,7 @@ import json
 import requests
 
 
-def query(endpoint, method, query, post_data, headers):
+def query(endpoint, method, query, post_data, headers, response_path):
     """
     Standard web API request
     """
@@ -14,4 +14,11 @@ def query(endpoint, method, query, post_data, headers):
     response = requests.request(
         method, endpoint, params=query, data=post_data, headers=headers
     )
-    return response.text
+
+    if response_path:
+        current = response.json()
+        for p in response_path:
+            current = current[p]
+        return current
+    else:
+        return response.text

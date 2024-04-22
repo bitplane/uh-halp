@@ -36,9 +36,9 @@ def debug_print_query(**kwargs):
     return "failed query attempt: " + str(kwargs)
 
 
-def get_query_func(module_name):
+def get_func(module_name, func_name="query"):
     """
-    Returns the query function for the given module name.
+    Returns a function in the given module name.
     """
     old_path = sys.path.copy()
     pwd = os.getcwd()
@@ -51,7 +51,7 @@ def get_query_func(module_name):
         print(f"Module {module_name} not found. Using debug printer instead.")
         return debug_print_query
 
-    return module.query
+    return getattr(module, func_name)
 
 
 def main() -> int:
@@ -90,7 +90,7 @@ def main() -> int:
 
     params = apply_vars(vars, current_config["params"])
 
-    query = get_query_func(current_config["module"])
+    query = get_func(current_config["module"])
 
     response = query(**params)
     print(response)

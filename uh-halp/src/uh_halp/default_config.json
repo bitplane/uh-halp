@@ -1,4 +1,12 @@
 {
+  "vars": {
+    "current": "groq",
+    "use_key": ["uh_halp.config.get_param", {"service": "{current}", "param": "use_key"}],
+    "key":     ["uh_halp.keys.get_key",     {"service": "{current}", "use_key": "{use_key}"}],
+    "os":      ["uh_halp.helpers.get_os"],
+    "shell":   ["uh_halp.helpers.get_shell"],
+    "query":   ["uh_halp.command_line.get_query"]
+  },
   "services": {
     "openai": {
       "module": "uh_halp.backend.openai",
@@ -10,14 +18,46 @@
       },
       "use_key": true
     },
+    "groq": {
+      "module": "uh_halp.backend.web_api",
+      "params": {
+        "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+        "method": "POST",
+        "query": {},
+        "post_data": {
+          "model": "llama3-8b-8192",
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a command line helper called \"uh\". You respond with a single line of code that the user will read and execute. For example if the user says \"uh how do I reverse file.txt?\" you respond \"tac file.txt\". Do not elaborate, reply with a one-liner. The user is on {os} using {shell}."
+            },
+            {
+              "role": "user",
+              "content": "uh {query}"
+            }
+          ],
+          "temperature": 1,
+          "max_tokens": 512,
+          "top_p": 1,
+          "stop": null,
+          "stream": false
+        },
+        "headers": {
+          "User-Agent": "uh-halp",
+          "Content-Type": "application/json",
+          "Authorization": "Bearer {key}"
+        },
+        "response_path": ["choices", 0, "message", "content"]
+      },
+      "use_key": true
+    },
     "custom": {
       "module": "uh_halp.backend.web_api",
       "params": {
         "endpoint": "http://localhost:5001/api/chat",
         "method": "POST",
         "query": {},
-        "post_data": {
-        },
+        "post_data": {},
         "headers": {
           "User-Agent": "uh-halp",
           "Content-Type": "application/json",
@@ -27,5 +67,5 @@
       "use_key": true
     }
   },
-  "current": "openai"
+  "current": "groq"
 }

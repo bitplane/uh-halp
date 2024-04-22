@@ -10,8 +10,8 @@ Configure:
 
 ```bash
 $ uh reverse file.txt
->>> Need an openai key, it'll be saved to ~/.uh-key: <paste here>
->> Saving openai key to ~/.uh-keys
+>>> Need a groq key, it'll be saved to ~/.uh-key: <paste here>
+>> Saving groq key to ~/.uh-keys
 tac file.txt
 ```
 
@@ -42,8 +42,8 @@ while true; do echo -e "\a"; sleep $((RANDOM % 10)); done &
 
 ## Notes
 
-It currently defaults to OpenAI. If you want to use something else, open
-`~/.uh-config.json` and change `current` and edit the config. If you want
+It currently defaults to Groq. If you want to use something else, open
+`~/.uh-config` and change `current` and edit the config. If you want
 to add your own custom back-end, give the name of a module that has a
 `query` function in it, then fill in the parameters with templates vars
 in the example format. Use `{key}` as one of the params to send the key
