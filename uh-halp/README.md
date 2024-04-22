@@ -1,5 +1,7 @@
 # uh halp
 
+![demo](video.gif)
+
 Install:
 
 ```bash
