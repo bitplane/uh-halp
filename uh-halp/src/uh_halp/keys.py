@@ -4,12 +4,18 @@ import os
 KEY_FILE = "~/.uh-keys"
 
 
-def prompt_key(service: str):
+def prompt_key(service: str) -> str:
+    """
+    Prompt the user for a key for the given service, returning it as a string
+    """
     key = input(f">>> Need a key for {service}, paste it here: ").strip()
     return key
 
 
-def load_keys(key_file: str = KEY_FILE) -> dict:
+def load_keys(key_file: str = KEY_FILE) -> dict[str, str]:
+    """
+    Load the keys from disk and return them
+    """
     key_file = os.path.expanduser(key_file)
 
     if os.path.exists(key_file):
@@ -20,6 +26,9 @@ def load_keys(key_file: str = KEY_FILE) -> dict:
 
 
 def save_keys(keys: dict, key_file: str = KEY_FILE):
+    """
+    Save all the keys to disk
+    """
     key_file = os.path.expanduser(key_file)
     with open(key_file, "wt") as f:
         json.dump(keys, f, indent=4)
@@ -43,9 +52,9 @@ def save_key(service: str, key: str, key_file: str = KEY_FILE):
     save_keys(keys, key_file)
 
 
-def load_key(service: str, key_file: str = KEY_FILE):
+def load_key(service: str, key_file: str = KEY_FILE) -> str | None:
     """
-    Load the key from disk
+    Load the key from disk, returning it.
     """
     keys = load_keys(key_file)
 

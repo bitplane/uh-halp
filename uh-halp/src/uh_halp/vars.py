@@ -6,9 +6,10 @@ import os
 import platform
 import subprocess
 import sys
+from typing import Any
 
 
-def get_os():
+def get_os() -> str:
     """
     Returns a string describing the OS.
     """
@@ -34,7 +35,7 @@ def get_os():
     return system
 
 
-def get_shell():
+def get_shell() -> str:
     """
     Returns the user's shell executable name.
     """
@@ -43,7 +44,7 @@ def get_shell():
     return os.path.basename(shell_cmd)
 
 
-def apply_vars(vars: dict, template: dict):
+def apply_vars(vars: dict, template: Any) -> Any:
     """
     Replaces strings in a json-style object tree. Use {var}
     """

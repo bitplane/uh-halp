@@ -1,9 +1,13 @@
+"""
+For calling the OpenAI completion model.
+"""
+
 import openai
 
 from .util import clean
 
 
-def query(model, system_prompt, user_prompt, key):
+def query(model: str, system_prompt: str, user_prompt: str, key: str) -> str:
     """
     Calls the OpenAI API with the query from the command line.
     """

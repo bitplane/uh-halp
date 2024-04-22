@@ -19,4 +19,4 @@ markdown_extensions:
 
 nav:
   - 'halp': index.html
-  - 'doctsrings': pydoc.md
+  - 'docstrings': pydoc.md

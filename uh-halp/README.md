@@ -10,7 +10,7 @@ Configure:
 
 ```bash
 $ uh reverse file.txt
->>> Need a groq key, it'll be saved to ~/.uh-key: <paste here>
+>>> Need a groq key, it'll be saved to ~/.uh-keys: <paste here>
 >> Saving groq key to ~/.uh-keys
 tac file.txt
 ```

@@ -1,4 +1,4 @@
-def clean(response: str):
+def clean(response: str) -> str:
     """
     Cleans the response from the API, because we can't trust it to play nicely.
     """

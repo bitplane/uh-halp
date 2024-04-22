@@ -5,6 +5,7 @@ Contains main entrypoint
 import importlib
 import os
 import sys
+from typing import Callable
 
 from .config import CONFIG_FILE, get_config
 from .keys import get_key
@@ -29,14 +30,13 @@ def show_help():
     halp = "\n".join((line[4:] for line in doc.split("\n")))
 
     print(halp)
-    return 0
 
 
 def debug_print_query(**kwargs):
     return "failed query attempt: " + str(kwargs)
 
 
-def get_func(module_name, func_name="query"):
+def get_func(module_name: str, func_name="query") -> Callable:
     """
     Returns a function in the given module name.
     """
