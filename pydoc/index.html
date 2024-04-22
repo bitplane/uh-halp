@@ -16,7 +16,7 @@
     
     
       
-        <title>doctsrings - uh</title>
+        <title>docstrings - uh</title>
       
     
     
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              doctsrings
+              docstrings
             
           </span>
         </div>
@@ -252,7 +252,7 @@
         
   
   <span class="md-ellipsis">
-    doctsrings
+    docstrings
   </span>
   
 
@@ -305,17 +305,17 @@
 <p>Gets template variables that can be inserted into the context.</p>
 <p><a id="uh_halp.vars.get_os"></a></p>
 <h4 id="get_os">get_os</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">get_os</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">get_os</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </span></code></pre></div>
 <p>Returns a string describing the OS.</p>
 <p><a id="uh_halp.vars.get_shell"></a></p>
 <h4 id="get_shell">get_shell</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">get_shell</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">get_shell</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </span></code></pre></div>
 <p>Returns the user's shell executable name.</p>
 <p><a id="uh_halp.vars.apply_vars"></a></p>
 <h4 id="apply_vars">apply_vars</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">apply_vars</span><span class="p">(</span><span class="nb">vars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">template</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">apply_vars</span><span class="p">(</span><span class="nb">vars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">template</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span>
 </span></code></pre></div>
 <p>Replaces strings in a json-style object tree. Use {var}</p>
 <p><a id="uh_halp.vars.get_vars"></a></p>
@@ -351,16 +351,28 @@ To use one, reference it like {var} in any string field.</p>
 <p>Reads the config file, creating it from template if it doesn't exist</p>
 <p><a id="uh_halp.backend.web_api"></a></p>
 <h1 id="uh_halpbackendweb_api">uh_halp.backend.web_api</h1>
+<p>Generic web API functions</p>
 <p><a id="uh_halp.backend.web_api.query"></a></p>
 <h4 id="query">query</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">response_path</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="n">endpoint</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">post_data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>          <span class="n">headers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">response_path</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </span></code></pre></div>
-<p>Standard web API request</p>
+<p>Standard web API request.</p>
+<p><a id="uh_halp.backend.web_api.extract"></a></p>
+<h4 id="extract">extract</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">,</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>            <span class="n">response_path</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</span></code></pre></div>
+<p>If there's a response_path list, treat the response as JSON and the list as
+the path to the key we want. Use strings for property names, ints for list
+indices, and you can use negative indices to reference the end of a list
+(i.e. -1 for the last item.)</p>
 <p><a id="uh_halp.backend.openai"></a></p>
 <h1 id="uh_halpbackendopenai">uh_halp.backend.openai</h1>
+<p>For calling the OpenAI completion model.</p>
 <p><a id="uh_halp.backend.openai.query"></a></p>
 <h4 id="query_1">query</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">system_prompt</span><span class="p">,</span> <span class="n">user_prompt</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">system_prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">user_prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </span></code></pre></div>
 <p>Calls the OpenAI API with the query from the command line.</p>
 <p><a id="uh_halp.backend"></a></p>
@@ -369,26 +381,41 @@ To use one, reference it like {var} in any string field.</p>
 <h1 id="uh_halpbackendutil">uh_halp.backend.util</h1>
 <p><a id="uh_halp.backend.util.clean"></a></p>
 <h4 id="clean">clean</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </span></code></pre></div>
 <p>Cleans the response from the API, because we can't trust it to play nicely.</p>
 <p><a id="uh_halp.__main__"></a></p>
 <h1 id="uh_halp__main__">uh_halp.__main__</h1>
 <p><a id="uh_halp.keys"></a></p>
 <h1 id="uh_halpkeys">uh_halp.keys</h1>
+<p><a id="uh_halp.keys.prompt_key"></a></p>
+<h4 id="prompt_key">prompt_key</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span> <span class="nf">prompt_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</span></code></pre></div>
+<p>Prompt the user for a key for the given service, returning it as a string</p>
+<p><a id="uh_halp.keys.load_keys"></a></p>
+<h4 id="load_keys">load_keys</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span> <span class="nf">load_keys</span><span class="p">(</span><span class="n">key_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">KEY_FILE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+</span></code></pre></div>
+<p>Load the keys from disk and return them</p>
+<p><a id="uh_halp.keys.save_keys"></a></p>
+<h4 id="save_keys">save_keys</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span> <span class="nf">save_keys</span><span class="p">(</span><span class="n">keys</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">KEY_FILE</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Save all the keys to disk</p>
 <p><a id="uh_halp.keys.save_key"></a></p>
 <h4 id="save_key">save_key</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span> <span class="nf">save_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">KEY_FILE</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span> <span class="nf">save_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">KEY_FILE</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Save the service's key to disk</p>
 <p><a id="uh_halp.keys.load_key"></a></p>
 <h4 id="load_key">load_key</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span> <span class="nf">load_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">KEY_FILE</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span> <span class="nf">load_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">KEY_FILE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>
 </span></code></pre></div>
-<p>Load the key from disk</p>
+<p>Load the key from disk, returning it.</p>
 <p><a id="uh_halp.keys.get_key"></a></p>
 <h4 id="get_key">get_key</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span> <span class="nf">get_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">def</span> <span class="nf">get_key</span><span class="p">(</span><span class="n">service</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </span></code></pre></div>
 <p>Loads the service's key from ~/.uh-keys, or prompts for it and saves it there.</p>
 <p><a id="uh_halp.main"></a></p>
@@ -396,7 +423,7 @@ To use one, reference it like {var} in any string field.</p>
 <p>Contains main entrypoint</p>
 <p><a id="uh_halp.main.show_help"></a></p>
 <h4 id="show_help">show_help</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span> <span class="nf">show_help</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">def</span> <span class="nf">show_help</span><span class="p">()</span>
 </span></code></pre></div>
 <p>uh
 command line help on the command line</p>
@@ -408,12 +435,12 @@ command line help on the command line</p>
   Access tokens go in ~/.uh-keys</p>
 <p><a id="uh_halp.main.get_func"></a></p>
 <h4 id="get_func">get_func</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span> <span class="nf">get_func</span><span class="p">(</span><span class="n">module_name</span><span class="p">,</span> <span class="n">func_name</span><span class="o">=</span><span class="s2">&quot;query&quot;</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">def</span> <span class="nf">get_func</span><span class="p">(</span><span class="n">module_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func_name</span><span class="o">=</span><span class="s2">&quot;query&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span>
 </span></code></pre></div>
 <p>Returns a function in the given module name.</p>
 <p><a id="uh_halp.main.main"></a></p>
 <h4 id="main">main</h4>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </span></code></pre></div>
 <p>Entrypoint for the CLI.</p>
 
