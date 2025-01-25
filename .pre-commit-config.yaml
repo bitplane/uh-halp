@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v5.0.0
     hooks:
     -   id: check-toml
     -   id: check-symlinks
@@ -10,29 +10,29 @@ repos:
     -   id: mixed-line-ending
     -   id: trailing-whitespace
 -   repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 24.10.0
     hooks:
     -   id: black
 -   repo: https://github.com/PyCQA/isort
-    rev: 5.12.0
+    rev: 5.13.2
     hooks:
     -   id: isort
         args: [--line-length=88]
 -   repo: https://github.com/PyCQA/flake8
-    rev: 6.0.0
+    rev: 7.1.1
     hooks:
     -   id: flake8
         args: ['--config=.flake8']
 -   repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.9.0.2
+    rev: v0.10.0.1
     hooks:
     -   id: shellcheck
         args: [-eSC1091]
 -   repo: https://github.com/jackdewinter/pymarkdown
-    rev: v0.9.9
+    rev: v0.9.27
     hooks:
     -   id: pymarkdown
 -   repo: https://github.com/cmake-lint/cmake-lint
-    rev: 1.4.2
+    rev: 1.4.3
     hooks:
     -   id: cmakelint

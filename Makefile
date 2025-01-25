@@ -13,43 +13,43 @@ install: .venv/.installed  ## installs the venv and the project packages
 dev: .venv/.installed-dev pre-commit  ## prepare local repo and venv for dev
 
 test: .venv/.installed-dev  ## run the project's tests
-	build/test.sh
+	scripts/test.sh
 
-coverage: .venv/.installed-dev build/coverage.sh  ## build the html coverage report
-	build/coverage.sh
+coverage: .venv/.installed-dev scripts/coverage.sh  ## build the html coverage report
+	scripts/coverage.sh
 
 docs: .docs/index.html ## build the documentation
 
 clean:  ## delete caches and the venv
-	build/clean.sh
+	scripts/clean.sh
 
 pre-commit: .git/hooks/pre-commit  ## install pre-commit into the git repo
 
-update-pre-commit: build/update-pre-commit.sh  ## autoupdate pre-commit
-	build/update-pre-commit.sh
+update-pre-commit: scripts/update-pre-commit.sh  ## autoupdate pre-commit
+	scripts/update-pre-commit.sh
 
-dist: build/dist.sh ## build the distributable files
-	build/dist.sh
+dist: scripts/dist.sh ## build the distributable files
+	scripts/dist.sh
 
-release: build/release.sh ## publish to pypi
-	build/release.sh
+release: scripts/release.sh ## publish to pypi
+	scripts/release.sh
 
 # Caching doesn't work if we depend on PHONY targets
 
-.docs/index.html: .venv/.installed-dev build/docs.sh mkdocs.yml $(shell find . -name '*.md')
-	build/docs.sh
+.docs/index.html: .venv/.installed-dev scripts/docs.sh mkdocs.yml $(shell find . -name '*.md')
+	scripts/docs.sh
 
-.venv/.installed: */pyproject.toml .venv/bin/activate build/install.sh $(shell find uh-halp -name '*.py')
-	build/install.sh
+.venv/.installed: */pyproject.toml .venv/bin/activate scripts/install.sh $(shell find uh-halp -name '*.py')
+	scripts/install.sh
 
-.venv/.installed-dev: */pyproject.toml .venv/bin/activate build/install-dev.sh
-	build/install-dev.sh
+.venv/.installed-dev: */pyproject.toml .venv/bin/activate scripts/install-dev.sh
+	scripts/install-dev.sh
 
 .venv/bin/activate:
-	build/venv.sh
+	scripts/venv.sh
 
-.git/hooks/pre-commit: build/install-pre-commit.sh
-	build/install-pre-commit.sh
+.git/hooks/pre-commit: scripts/install-pre-commit.sh
+	scripts/install-pre-commit.sh
 
 
 help: ## Show this help
