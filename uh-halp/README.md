@@ -1,14 +1,22 @@
-# uh halp
+---
+features: ["asciinema"]
+---
+# 🛟 uh, halp?
 
-![demo](video.gif)
+![demo](uh-halp.cast.png)
 
-Install:
+* [🐱 github](https://github.com/bitplane/uh-halp)
+* [🐍 pypi](https://pypi.org/uh-halp)
+* [🏠 home](https://bitplane.net/dev/python/uh-halp)
+* [📃 pydoc](https://bitplane.net/dev/python/uh-halp/pydocs)
+
+## 📦 Install
 
 ```bash
 pip install uh-halp
 ```
 
-Configure:
+## ⚙ Configure
 
 ```bash
 $ uh reverse file.txt
@@ -17,7 +25,7 @@ $ uh reverse file.txt
 tac file.txt
 ```
 
-Usage:
+## ▶️ Usage
 
 ```bash
 $ uh check my syslog
@@ -42,7 +50,7 @@ $ uh make annoying beeping noises randomly in the background forever
 while true; do echo -e "\a"; sleep $((RANDOM % 10)); done &
 ```
 
-## Notes
+## 🗒️ Notes
 
 It currently defaults to Groq. If you want to use something else, open
 `~/.uh-config` and change `current` and edit the config. If you want
@@ -58,11 +66,12 @@ output!
 Seems to work well in bash and zsh on Linux and macOS. It's not had much
 testing elsewhere else. Windows, BSD, Solaris, zOS etc should also work.
 
-## Disclaimer
+## ⚠️ Disclaimer
 
 If it blows your machine up it's your own fault. Don't run code produced by
 a language model without reading it.
 
-## License
+## ⚖️ License
 
 WTFPL with one additional clause: don't blame me!
+

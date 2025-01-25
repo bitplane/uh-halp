@@ -4,6 +4,6 @@ __pycache__
 */dist
 test-output.xml
 site/*
-docs/pydoc.md
+docs/pydoc/index.md
 *.prof
 log/*

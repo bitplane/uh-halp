@@ -18,7 +18,8 @@ test: .venv/.installed-dev  ## run the project's tests
 coverage: .venv/.installed-dev scripts/coverage.sh  ## build the html coverage report
 	scripts/coverage.sh
 
-docs: .docs/index.html ## build the documentation
+docs: scripts/docs.sh uh-halp/README.md docs/* ## build the documentation
+	scripts/docs.sh
 
 clean:  ## delete caches and the venv
 	scripts/clean.sh
@@ -34,10 +35,8 @@ dist: scripts/dist.sh ## build the distributable files
 release: scripts/release.sh ## publish to pypi
 	scripts/release.sh
 
-# Caching doesn't work if we depend on PHONY targets
 
-.docs/index.html: .venv/.installed-dev scripts/docs.sh mkdocs.yml $(shell find . -name '*.md')
-	scripts/docs.sh
+# Caching doesn't work if we depend on PHONY targets
 
 .venv/.installed: */pyproject.toml .venv/bin/activate scripts/install.sh $(shell find uh-halp -name '*.py')
 	scripts/install.sh

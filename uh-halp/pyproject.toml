@@ -30,8 +30,6 @@ dev = [
     "coverage",
     "build",
     "twine",
-    "mkdocs",
-    "mkdocs-material",
     "pydoc-markdown"
 ]
 

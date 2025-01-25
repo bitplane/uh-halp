@@ -28,10 +28,6 @@ repos:
     hooks:
     -   id: shellcheck
         args: [-eSC1091]
--   repo: https://github.com/jackdewinter/pymarkdown
-    rev: v0.9.27
-    hooks:
-    -   id: pymarkdown
 -   repo: https://github.com/cmake-lint/cmake-lint
     rev: 1.4.3
     hooks:
