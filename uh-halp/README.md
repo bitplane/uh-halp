@@ -6,7 +6,7 @@ features: ["asciinema"]
 ![demo](uh-halp.cast.png)
 
 * [🐱 github](https://github.com/bitplane/uh-halp)
-* [🐍 pypi](https://pypi.org/uh-halp)
+* [🐍 pypi](https://pypi.org/project/uh-halp)
 * [🏠 home](https://bitplane.net/dev/python/uh-halp)
 * [📃 pydoc](https://bitplane.net/dev/python/uh-halp/pydocs)
 
