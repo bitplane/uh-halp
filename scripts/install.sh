@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
-
-# activate venv
 source .venv/bin/activate
-
 set -e
 
-# install our package
-python3 -m pip install ./uh-halp
+if command -v uv >/dev/null 2>&1; then
+    PIP="uv pip"
+else
+    PIP="python3 -m pip"
+fi
 
-# let make know that we are installed in user mode
+$PIP install .
+
 echo Installed normally
-
 touch .venv/.installed
-rm .venv/.installed-dev || true
-
+rm .venv/.installed-dev 2>/dev/null || true

@@ -7,7 +7,7 @@ authors = [
 ]
 
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: Public Domain", # OSI: nuck my suts; WTFPL
@@ -23,13 +23,13 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "flake8",
     "pre-commit",
     "pytest",
     "pytest-cov",
     "coverage",
     "build",
     "twine",
+    "ruff",
     "pydoc-markdown"
 ]
 
@@ -45,3 +45,10 @@ requires = ["flit_core >=3.2,<4"]
 
 [project.scripts]
 uh = "uh_halp.main:main"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.format]
+docstring-code-format = true

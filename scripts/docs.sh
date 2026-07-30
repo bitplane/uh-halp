@@ -3,17 +3,20 @@
 set -e
 
 # Variables
+PROJECT_NAME=$(basename "$(pwd)")
+MODULE_NAME=$(echo "$PROJECT_NAME" | tr '-' '_')
 REPO_URL="ssh://git@github.com/bitplane/bitplane.net.git"
 SRC_PATH="docs"
-DEST_PATH="dev/python/uh-halp"
-COMMIT_MSG="Update uh-halp docs"
+DEST_PATH="dev/python/$PROJECT_NAME"
+COMMIT_MSG="Update $PROJECT_NAME docs"
 
 # Build the pydocs
 . .venv/bin/activate
 
-cd uh-halp/src
-pydoc-markdown -p uh_halp > ../../docs/pydoc/index.md
-cd ../..
+mkdir -p docs/pydoc
+cd src
+pydoc-markdown -p "$MODULE_NAME" > ../docs/pydoc/index.md
+cd ..
 
 # Check out the main website repo
 TMP_DIR=$(mktemp -d)

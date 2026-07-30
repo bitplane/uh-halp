@@ -17,7 +17,7 @@ def get_os() -> str:
     if system == "Linux":
         try:
             return subprocess.check_output(["lsb_release", "-ds"]).decode().strip()
-        except Exception:
+        except (OSError, subprocess.CalledProcessError):
             with open("/etc/os-release") as f:
                 for line in f:
                     if line.startswith("PRETTY_NAME="):
@@ -51,10 +51,7 @@ def apply_vars(vars: dict, template: Any) -> Any:
     if isinstance(template, str):
         return template.format(**vars)
     elif isinstance(template, dict):
-        return {
-            apply_vars(vars, key): apply_vars(vars, value)
-            for key, value in template.items()
-        }
+        return {apply_vars(vars, key): apply_vars(vars, value) for key, value in template.items()}
     elif isinstance(template, list):
         return [apply_vars(vars, item) for item in template]
     else:

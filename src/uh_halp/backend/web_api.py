@@ -22,9 +22,7 @@ def query(
     if isinstance(post_data, dict):
         post_data = json.dumps(post_data)
 
-    response = requests.request(
-        method, endpoint, params=query, data=post_data, headers=headers
-    )
+    response = requests.request(method, endpoint, params=query, data=post_data, headers=headers)
 
     return extract(response, response_path)
 

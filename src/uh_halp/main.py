@@ -5,7 +5,7 @@ Contains main entrypoint
 import importlib
 import os
 import sys
-from typing import Callable
+from collections.abc import Callable
 
 from .config import CONFIG_FILE, get_config
 from .keys import get_key
@@ -27,7 +27,7 @@ def show_help():
     Access tokens go in ~/.uh-keys
     """
     doc = show_help.__doc__
-    halp = "\n".join((line[4:] for line in doc.split("\n")))
+    halp = "\n".join(line[4:] for line in doc.split("\n"))
 
     print(halp)
 
@@ -61,9 +61,7 @@ def main() -> int:
     config = get_config()
     current = config.get("current", None)
 
-    needs_help = len(sys.argv) == 1 or (
-        len(sys.argv) == 2 and any(halp in sys.argv[1] for halp in ("halp", "help"))
-    )
+    needs_help = len(sys.argv) == 1 or (len(sys.argv) == 2 and any(halp in sys.argv[1] for halp in ("halp", "help")))
 
     if needs_help:
         show_help()
